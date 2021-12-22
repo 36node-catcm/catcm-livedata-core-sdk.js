@@ -122,6 +122,23 @@ export default class SDK {
       });
     },
     /**
+     * livedata db update
+     *
+     * @param {UpdateLivedataDbRequest} req updateLivedataDb request
+     * @returns {Promise<UpdateLivedataDbResponse>} The livedata
+     */
+    updateLivedataDb: (req = {}) => {
+      const { headers, body } = req;
+
+      if (!body) throw new Error("requetBody is required for updateLivedataDb");
+
+      return fetch(`${this.base}/livedataUpdate`, {
+        method: "POST",
+        body,
+        headers: { Authorization: this.auth, ...headers },
+      });
+    },
+    /**
      * List all livedata events
      *
      * @param {ListLivedataEventsRequest} req listLivedataEvents request

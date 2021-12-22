@@ -41,6 +41,10 @@ declare namespace SDK {
      */
     deleteLivedata(req: DeleteLivedataRequest): Promise<DeleteLivedataResponse>;
     /**
+     * livedata db update
+     */
+    updateLivedataDb(req: UpdateLivedataDbRequest): Promise<UpdateLivedataDbResponse>;
+    /**
      * List all livedata events
      */
     listLivedataEvents(req: ListLivedataEventsRequest): Promise<ListLivedataEventsResponse>;
@@ -186,6 +190,14 @@ declare namespace SDK {
 
   type DeleteLivedataRequest = {
     livedataId: string;
+  };
+
+  type UpdateLivedataDbRequest = {
+    body: LivedataUpdateDb;
+  };
+
+  type UpdateLivedataDbResponse = {
+    body: LivedataUpdateDb;
   };
 
   type ListLivedataEventsRequest = {
@@ -642,6 +654,7 @@ declare namespace SDK {
     value: string;
   };
   type LivedataSummary = {};
+  type LivedataUpdateDb = {};
   type Feedback = {
     text: string;
   };
